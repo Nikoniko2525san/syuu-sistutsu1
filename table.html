@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>お小遣い支出表</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+  <h1>お小遣い支出表</h1>
+  <p><strong>合計支出:</strong> {{ total }} 円</p>
+
+  <h3>日別支出合計</h3>
+  <ul>
+    {% for row in daily %}
+      <li>{{ row['date'] }} : {{ row['amount'] }} 円</li>
+    {% endfor %}
+  </ul>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>用途</th>
+        <th>金額</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in table %}
+        <tr>
+          <td>{{ row['date'] }}</td>
+          <td>{{ row['item'] }}</td>
+          <td>{{ row['amount'] }} 円</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="/" class="btn btn-secondary">戻る</a>
+</body>
+</html>
